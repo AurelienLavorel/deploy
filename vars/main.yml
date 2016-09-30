@@ -1,0 +1,5 @@
+---
+# vars file for azavea.packer
+deploy_from: "/data/src/magento/"
+deploy_to: "/var/www/html/test"
+keep_releases: 3
