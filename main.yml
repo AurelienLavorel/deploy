@@ -1,0 +1,17 @@
+---
+# tasks file
+
+- name: Deploy amersports servers
+  hosts: all
+  vars:
+    ansistrano_deploy_from: "{{ deploy_from }}"
+    ansistrano_deploy_to: "{{ deploy_to }}"
+    ansistrano_keep_releases: "{{ keep_releases }}"
+    ansistrano_shared_paths:
+      - "var"
+      - "media"
+  pre_tasks:
+    - name: include vars
+      include_vars: vars/{{ deploy_environment }}.yml
+  roles:
+    - { role: carlosbuenosvinos.ansistrano-deploy }
