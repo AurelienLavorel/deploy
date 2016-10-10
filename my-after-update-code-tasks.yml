@@ -1,0 +1,4 @@
+---
+- name: Updates paths
+ shell: find "{{ deploy_to }}" -name '*.{{ item }}' -exec bash -c 'mv $0 ${0/.{{ item }}/}' {} \;
+ with_items: {{ lavoweb_remove_sufix }}
