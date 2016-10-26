@@ -11,8 +11,7 @@
       - "var"
       - "media"
     ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/my-after-update-code-tasks.yml"
-    lavoweb_remove_sufix:
-      - "{{ deploy_environment }}"
+    lavoweb_remove_sufix: "{{ deploy_environment }}"
   pre_tasks:
     - name: include vars
       include_vars: vars/{{ deploy_environment }}.yml

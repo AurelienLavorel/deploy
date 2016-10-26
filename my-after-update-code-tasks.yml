@@ -1,4 +1,6 @@
 ---
 - name: Updates paths
- shell: find "{{ deploy_to }}" -name '*.{{ item }}' -exec bash -c 'mv $0 ${0/.{{ item }}/}' {} \;
- with_items: {{ lavoweb_remove_sufix }}
+  shell: find "{{ deploy_to }}/current" -name '*.{{ item }}' -exec bash -c 'cp -f $0 ${0/.{{ item }}/}' {} \;
+  with_items:
+    - "{{ deploy_environment }}"
+    - "{{ lavoweb_remove_sufix }}"
